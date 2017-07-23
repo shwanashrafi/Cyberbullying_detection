@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>cyberbullyingdetection</title>
+{% endblock %}
+
+{% block body %}
+<h1 class="cover-heading">Comment Cleaner</h1>
+
+
+
+
+
+<!-- <h4>Leave a comment</h4>-->
+<h4></h4>
+&nbsp
+
+
+<div class="large-8 columns">
+<form action="/submit_message" method="post">
+  <!--<input type="text" placeholder="Name" name="who"> -->
+  <textarea placeholder="Enter your comment here" name="message" cols="50" rows="30"></textarea>
+       
+  <div class="inner cover">
+    <p class="lead">
+      <!--<a href="#" class="btn btn-lg btn-default">Submit</a>-->
+      <input type="submit" value="Submit">
+    </p>
+  </div>
+
+
+</form>
+</div>
+
+<p>
+  <a href="{{ url_for('about') }}">About</a>
+</p>
+
+{% endblock %}

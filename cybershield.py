@@ -1,23 +1,22 @@
-# -*- coding: utf-8 -*-
 from flask import Flask, redirect, request, url_for, render_template
 
 import evalcomment as mdleval
 
 
 app = Flask(__name__)
-app.config.from_object(__name__) # consume the configuration above
+app.config.from_object(__name__)
 
 
 
-@app.route('/')
+@app.cybershield('/')
 def index():
   return render_template('index.html')
 
-@app.route('/about')
+@app.cybershield('/about')
 def about():
   return render_template('about.html')
 
-@app.route('/detector')
+@app.cybershield('/detector')
 def detector():
  
   comment = request.args['comment']
@@ -27,7 +26,7 @@ def detector():
   else:
     return "Seems OK to me!"
 
-@app.route('/submit_message', methods=['POST'])
+@app.cybershield('/submit_message', methods=['POST'])
 def submit_message():
   comment = request.form.get('message','oops')
   return redirect(url_for('detector', comment=comment))

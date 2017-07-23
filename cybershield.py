@@ -8,15 +8,15 @@ app.config.from_object(__name__)
 
 
 
-@app.cybershield('/')
+@app.route('/')
 def index():
   return render_template('index.html')
 
-@app.cybershield('/about')
+@app.route('/about')
 def about():
   return render_template('about.html')
 
-@app.cybershield('/detector')
+@app.route('/detector')
 def detector():
  
   comment = request.args['comment']
@@ -26,7 +26,7 @@ def detector():
   else:
     return "Seems OK to me!"
 
-@app.cybershield('/submit_message', methods=['POST'])
+@app.route('/submit_message', methods=['POST'])
 def submit_message():
   comment = request.form.get('message','oops')
   return redirect(url_for('detector', comment=comment))
